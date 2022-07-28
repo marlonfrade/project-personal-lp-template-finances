@@ -1,0 +1,21 @@
+//Todos os pixels importados foram convertidos para REM utilizando pixels/16
+
+// Variables (colors, font sizes, breakpoints and animations)
+@import "variables";
+@import "mixins";
+@import "animations";
+
+// Globals Config
+@import "globals";
+
+// Sections
+@import "header";
+@import "hero";
+@import "about";
+@import "services";
+@import "company";
+@import "recommendation";
+@import "social";
+@import "form";
+@import "policies";
+@import "footer";

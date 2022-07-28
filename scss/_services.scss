@@ -1,0 +1,214 @@
+.services {
+  min-height: 800px;
+  background-color: $primary-dark;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include breakpoint-up(large) {
+    flex-direction: row;
+  }
+
+  .container {
+    @include breakpoint-down(medium) {
+      flex-direction: column;
+    }
+  }
+
+  &__description {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    @include breakpoint-up(large) {
+      width: 70%;
+    }
+
+    h1 {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 48px;
+      line-height: 59px;
+      color: $white;
+      margin-bottom: 64px;
+      text-align: center;
+
+      @include breakpoint-up(large) {
+        text-align: start;
+      }
+    }
+
+    &__options {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+
+      &__item {
+        width: 100%;
+        margin-bottom: 72px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include breakpoint-up(large) {
+          width: 50%;
+          justify-content: flex-start;
+        }
+
+        img {
+          width: 39px;
+          height: 41px;
+        }
+
+        div {
+          padding-left: 25px;
+          span {
+            font-family: "Montserrat";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 36px;
+          }
+
+          p {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 25px;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  &__cta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    text-align: center;
+
+    background: $white;
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(0.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    h1 {
+      margin-bottom: 32px;
+    }
+
+    p {
+      margin-bottom: 32px;
+    }
+
+    @include breakpoint-up(large) {
+      width: 500px;
+      height: 659px;
+
+      h1 {
+        margin-bottom: 0px;
+      }
+
+      p {
+        margin-bottom: 0px;
+      }
+    }
+
+    button {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+      border: 0;
+      vertical-align: middle;
+      text-decoration: none;
+      background: transparent;
+      padding: 0;
+      font-size: inherit;
+      font-family: inherit;
+    }
+
+    button.learn-more {
+      width: 100%;
+      height: auto;
+    }
+
+    button.learn-more .circle {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: relative;
+      display: block;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: $primary-dark;
+      border-radius: 1.625rem;
+    }
+
+    button.learn-more .circle .icon {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background: $white;
+    }
+
+    button.learn-more .circle .icon.arrow {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      left: 0.625rem;
+      width: 1.125rem;
+      height: 0.125rem;
+      background: none;
+    }
+
+    button.learn-more .circle .icon.arrow::before {
+      position: absolute;
+      content: "";
+      top: -0.29rem;
+      right: 0.0625rem;
+      width: 0.625rem;
+      height: 0.625rem;
+      border-top: 0.125rem solid #fff;
+      border-right: 0.125rem solid #fff;
+      transform: rotate(45deg);
+    }
+
+    button.learn-more .button-text {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      color: $primary-dark;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    button:hover .circle {
+      width: 100%;
+    }
+
+    button:hover .circle .icon.arrow {
+      background: $white;
+      transform: translate(1rem, 0);
+    }
+
+    button:hover .button-text {
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,234 @@
+.footer {
+  background-color: $primary-dark;
+  color: $white;
+  padding: 2.5rem;
+  text-align: center;
+
+  .container {
+    @include breakpoint-up(large) {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 3fr;
+      grid-template-rows: 1fr auto;
+      grid-template-areas:
+        "logo links1 links2 cta"
+        "social links1 links2 copyright";
+      gap: 1rem;
+      justify-items: start;
+    }
+  }
+
+  a {
+    color: $white;
+  }
+
+  &__logo {
+    display: inline-block;
+
+    @include breakpoint-down(medium) {
+      margin-bottom: 1.875rem;
+    }
+
+    @include breakpoint-up(large) {
+      grid-area: logo;
+    }
+  }
+
+  &__social {
+    @include breakpoint-down(medium) {
+      margin-bottom: 1.875rem;
+    }
+
+    @include breakpoint-up(large) {
+      grid-area: social;
+      align-self: end;
+    }
+
+    a {
+      display: inline-block;
+      height: 1.25rem;
+
+      svg path {
+        transition: fill 150ms ease-in-out;
+      }
+
+      &:hover svg path {
+        fill: $accent-dark;
+      }
+    }
+
+    a:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9375rem;
+
+    @include breakpoint-up(large) {
+      justify-content: space-between;
+      align-items: start;
+    }
+
+    &.col1 {
+      @include breakpoint-up(large) {
+        grid-area: links1;
+      }
+    }
+
+    &.col2 {
+      @include breakpoint-down(medium) {
+        margin-bottom: 1.875rem;
+      }
+
+      @include breakpoint-up(large) {
+        grid-area: links2;
+      }
+    }
+
+    a {
+      line-height: 2.25;
+      transition: color 150ms ease-in-out;
+
+      &:hover {
+        color: $accent-dark;
+      }
+    }
+  }
+
+  &__cta {
+    @include breakpoint-up(large) {
+      grid-area: cta;
+      text-align: right;
+      justify-self: end;
+    }
+
+    .button {
+      width: 100%;
+      background: $white;
+      color: $primary-dark;
+      padding: 20px 50px;
+      border-radius: 10px;
+      transition: all 300ms ease-in-out;
+
+      &:hover {
+        background: $accent-dark;
+        color: $white;
+      }
+    }
+
+    a.button {
+      @include breakpoint-down(medium) {
+        margin-bottom: 1.875rem;
+      }
+    }
+  }
+
+  &__copyright {
+    font-size: 0.8125rem;
+    color: $white;
+
+    @include breakpoint-up(large) {
+      grid-area: copyright;
+      align-self: end;
+      justify-self: end;
+    }
+  }
+
+  .attribution {
+    margin-top: 4rem;
+    font-size: 0.875rem;
+
+    button {
+      width: 140px;
+      height: 56px;
+      overflow: hidden;
+      border: none;
+      color: #fff;
+      background: none;
+      position: relative;
+      padding-bottom: 2em;
+      cursor: pointer;
+    }
+
+    button > div,
+    button > svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    button:before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      background: currentColor;
+      transition: transform 0.25s ease-out;
+    }
+
+    button:hover:before {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    button .clone > *,
+    button .text > * {
+      opacity: 1;
+      font-size: 1.3rem;
+      transition: 0.2s;
+      margin-left: 4px;
+    }
+
+    button .clone > * {
+      transform: translateY(60px);
+    }
+
+    button:hover .clone > * {
+      opacity: 1;
+      transform: translateY(0px);
+      transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    }
+
+    button:hover .text > * {
+      opacity: 1;
+      transform: translateY(-60px);
+      transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    }
+
+    button:hover .clone > :nth-child(1) {
+      transition-delay: 0.15s;
+    }
+
+    button:hover .clone > :nth-child(2) {
+      transition-delay: 0.2s;
+    }
+
+    button:hover .clone > :nth-child(3) {
+      transition-delay: 0.25s;
+    }
+
+    button:hover .clone > :nth-child(4) {
+      transition-delay: 0.3s;
+    }
+    /* icon style and hover */
+    button svg {
+      width: 20px;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(-50deg);
+      transition: 0.2s ease-out;
+    }
+
+    button:hover svg {
+      transform: translateY(-50%) rotate(-90deg);
+    }
+  }
+}

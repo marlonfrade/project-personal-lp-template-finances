@@ -1,0 +1,142 @@
+.form {
+  background-image: url("/img/newsletter-BG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+
+  h1 {
+    color: $white;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    p {
+      color: $white;
+      padding-left: 5px;
+    }
+
+    label {
+      display: block;
+      width: 20px;
+      height: 20px;
+      padding-left: 20px;
+      cursor: pointer;
+      margin-bottom: 32px;
+    }
+
+    input[type="checkbox"] {
+      position: absolute;
+      transform: scale(0);
+    }
+
+    input[type="checkbox"]:checked ~ .checkbox {
+      transform: rotate(45deg);
+      width: 14px;
+      margin-left: 5px;
+      border-color: $accent-medium;
+      border-width: 5px;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      border-radius: 0;
+    }
+
+    .checkbox {
+      display: block;
+      width: inherit;
+      height: inherit;
+      border: solid 3px $accent-medium;
+      border-radius: 6px;
+      transition: all 0.375s;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 20px;
+      background: $accent-dark;
+      color: white;
+      padding: 1em 5em;
+      padding-left: 0.9em;
+      display: flex;
+      align-items: center;
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    button span {
+      display: block;
+      margin-left: 3.5em;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button svg {
+      display: block;
+      transform-origin: center center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    button:hover .svg-wrapper {
+      animation: fly-1 0.6s ease-in-out infinite alternate;
+    }
+
+    button:hover svg {
+      transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    }
+
+    button:hover span {
+      transform: translateX(1em);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes fly-1 {
+      from {
+        transform: translateY(0.1em);
+        transform: translateX(0.5em);
+      }
+
+      to {
+        transform: translateY(-0.1em);
+        transform: translateX(-0.5em);
+      }
+    }
+  }
+
+  &__inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 32px 0px;
+
+    @include breakpoint-up(large) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .input {
+      width: 100%;
+      height: 100%;
+      padding: 25px 30px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+
+      &:not(:last-child) {
+        @include breakpoint-down(medium) {
+          margin-bottom: 16px;
+        }
+        @include breakpoint-up(large) {
+          margin-right: 32px;
+        }
+      }
+    }
+  }
+}

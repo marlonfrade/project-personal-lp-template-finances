@@ -1,0 +1,50 @@
+.hero {
+  position: relative;
+  &__image {
+    position: relative;
+    background-image: url("/img/hero_bg_meeting.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 47rem;
+
+    @include breakpoint-up(medium) {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      min-height: 35rem;
+    }
+
+    @include breakpoint-up(large) {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      min-height: 47rem;
+    }
+  }
+
+  &__text {
+    width: 100%;
+    top: 50%;
+    left: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+
+    &__animation {
+      width: 11ch;
+      animation: typing 2s steps(40), blink 0.5s step-end infinite alternate;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid $white;
+      font-size: 40px;
+      font-weight: 900;
+
+      @include breakpoint-up(large) {
+        font-size: $font-xlg;
+      }
+    }
+  }
+}
